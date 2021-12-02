@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { ApolloServer } from 'apollo-server-express';
 import dotenv from 'dotenv';
-import conect_DB from './db/db.config.js'; './db/db.config';
+import conectarBD from './db/db.js';
 import { tipos } from './graphql/types.js';
 import { resolvers } from './graphql/resolvers.js';
 // import { validateToken } from './utils/tokenUtils.js';
@@ -22,7 +22,7 @@ const server = new ApolloServer({
   typeDefs: tipos,
   resolvers: resolvers,
   context: ({ req }) => {
-    // const token = req.headers?.authorization ?? null;
+    const token = req.headers?.authorization ?? null;
     if (token) {
       const userData = getUserData(token);
       if (userData) {
