@@ -4,7 +4,7 @@ const conectarBD = async () => {
   return await mongoose
     .connect(process.env.DBMONGO_URL)
     .then(() => {
-      console.log('Conexion exitosa');
+      console.log('Base de datos conectada  y funcionando');
     })
     .catch((e) => {
       console.error('Error conectando a la bd', e);
