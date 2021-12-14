@@ -39,7 +39,7 @@ app.use(express.json());
 
 app.use(cors());
 
-app.listen({ port: process.env.PORT || 4100 }, async () => {
+app.listen({ port: process.env.PORT}, async () => {
   await conectarBD();
   await server.start();
 
